@@ -19,7 +19,7 @@ public class TestClass {
 		
 		driver.manage().timeouts().implicitlyWait(1010, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(1000, TimeUnit.SECONDS);
-		driver.get("file:///C:/Users/Administrator/Downloads/Riya%20(@riya.shines)%20TikTok%20_%20Watch%20Riya's%20Newest%20TikTok%20Videos.html");
+		driver.get("file:///C:/Users/Administrator/Downloads/piyanka_mongia%20(@piyanka_mongia)%20Official%20TikTok%20_%20Watch%20piyanka_mongia's%20Newest%20TikTok%20Videos.html");
 		
 		Thread.sleep(3000);
 		
@@ -29,7 +29,7 @@ public class TestClass {
 		
 		for(WebElement link : links) {
 			String href = link.getAttribute("href");
-			write("D:\\riya.shines.txt", href);
+			write("A:\\piyanka_mongia.txt", href);
 		}
 		
 		
