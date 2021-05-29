@@ -24,20 +24,20 @@ public class GetLinks {
 	}
 
 	public static void extractLinks(WebDriver driver) throws InterruptedException {
-		for (int i = 0; i <= 13; i++) {
+//		for (int i = 0; i <= 13; i++) {
 
-			driver.get("https://imgadult.com/gallery-9818.html?p="+i);
+			driver.get("https://www.erome.com/a/prFqZ2xb");
 
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 
-			List<WebElement> links = driver.findElements(By.cssSelector(".all_images a img"));
+			List<WebElement> links = driver.findElements(By.cssSelector("#album .media-group .img-front"));
 
 			for (WebElement link : links) {
 				String href = link.getAttribute("src");
 //			write("A:\\piyanka_mongia.txt", href);
 				System.out.println(href);
 			}
-		}
+//		}
 	}
 	
 	public static void write(String filePath, String text) {

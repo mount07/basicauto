@@ -9,66 +9,96 @@ public class RuntimeTest3 {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		List<String> urls = Arrays.asList("https://thumb-p5.xhcdn.com/a/f1TQa4PC_lQ-rC4977ARGw/000/475/876/665_1000.jpg"
-				, "https://thumb-p8.xhcdn.com/a/qGtxvQ_vUzq3Nl3dE-vDjw/000/476/402/658_1000.jpg"
-				, "https://thumb-p3.xhcdn.com/a/oHudV6pHq3833_Z3k6Ovsw/000/476/402/653_1000.jpg"
-				, "https://thumb-p4.xhcdn.com/a/sCdoSWc628IoyiPw3BDmAA/000/476/402/614_1000.jpg"
-				, "https://thumb-p2.xhcdn.com/a/2cuSJ6Ktt8SypiRB3KJj8Q/000/476/402/582_1000.jpg"
-				, "https://thumb-p1.xhcdn.com/a/uumGhxTOu6oTt5JcobfPLw/000/476/402/571_1000.jpg"
-				, "https://thumb-p8.xhcdn.com/a/l8qkNHi4HZCByT8T7I1sfA/000/476/402/558_1000.jpg"
-				, "https://thumb-p8.xhcdn.com/a/N55h08TMYSDfbnvtuwBvAQ/000/476/402/548_1000.jpg"
-				, "https://thumb-p3.xhcdn.com/a/pz-PUcSmrwvdPqVbPfCHNA/000/476/402/533_1000.jpg"
-				, "https://thumb-p2.xhcdn.com/a/KLblB01D0PsNMkWfeL7iQw/000/476/402/522_1000.jpg"
-				, "https://thumb-p2.xhcdn.com/a/Q9Uwq_10E5VKn89bV7VDtA/000/476/402/502_1000.jpg"
-				, "https://thumb-p3.xhcdn.com/a/pt5xOQ4We7HdMwC7v6TSgg/000/476/402/483_1000.jpg"
-				, "https://thumb-p1.xhcdn.com/a/XNM1j5aGn0H7FGlctNeIsw/000/476/402/471_1000.jpg"
-				, "https://thumb-p3.xhcdn.com/a/-1e8Vp-4opiW9g8qvBjTHg/000/476/402/443_1000.jpg"
-				, "https://thumb-p7.xhcdn.com/a/9NkMLCrgTLW5hIf01ZJ5ow/000/476/402/417_1000.jpg"
-				, "https://thumb-p0.xhcdn.com/a/mmD80HYFavmIdCaDpzzQUw/000/476/402/390_1000.jpg"
-				, "https://thumb-p1.xhcdn.com/a/YORlHLfC_vSHuGaAAehz2g/000/476/402/371_1000.jpg"
-				, "https://thumb-p5.xhcdn.com/a/ah3kQ3G86dVvH39jPEZLsA/000/476/402/355_1000.jpg"
-				, "https://thumb-p9.xhcdn.com/a/-1E84gdPCmtzT5KeTxA2SQ/000/476/402/329_1000.jpg"
-				, "https://thumb-p1.xhcdn.com/a/zCN7XdlkoZHhmiE7HaIpMw/000/476/402/321_1000.jpg"
-				, "https://thumb-p4.xhcdn.com/a/up9pP82FpLTEhp8fX6Dp5A/000/476/402/304_1000.jpg"
-				, "https://thumb-p0.xhcdn.com/a/dCGpUAi3lzLaKoiQa_SaeQ/000/476/402/270_1000.jpg"
-				, "https://thumb-p4.xhcdn.com/a/p3vr1C6y9d_7a035J4Rlyg/000/476/402/234_1000.jpg"
-				, "https://thumb-p1.xhcdn.com/a/IgjtFI8e0yahRGQUBfvAkg/000/476/402/201_1000.jpg"
-				, "https://thumb-p9.xhcdn.com/a/MdNFtVJ2Y3SuqXVGHNQN3A/000/476/402/179_1000.jpg"
-				, "https://thumb-p4.xhcdn.com/a/AjxWfnQoLB6_OgYwddsZuQ/000/476/402/164_1000.jpg"
-				, "https://thumb-p6.xhcdn.com/a/s1RFEhYEuyFv31F0SI27uA/000/476/402/126_1000.jpg"
-				, "https://thumb-p7.xhcdn.com/a/G1sJfjV15BwA2c2qfzaxww/000/476/402/107_1000.jpg"
-				, "https://thumb-p8.xhcdn.com/a/UBY61gwQRa4ubqv0vjQurw/000/476/402/098_1000.jpg"
-				, "https://thumb-p9.xhcdn.com/a/dJBwrUF44ZjV0ce8KcUBCA/000/476/402/089_1000.jpg"
-				, "https://thumb-p8.xhcdn.com/a/mVVouaLpXxg2ILdnSwHEtw/000/476/402/078_1000.jpg"
-				, "https://thumb-p9.xhcdn.com/a/vzo952-nRlgVHIm-5nha6g/000/476/402/069_1000.jpg"
-				, "https://thumb-p9.xhcdn.com/a/vzo952-nRlgVHIm-5nha6g/000/476/402/069_1000.jpg"
-				, "https://thumb-p4.xhcdn.com/a/gAFPJuu5L-VSyEU_HYZ2jA/000/476/401/824_1000.jpg"
-				, "https://thumb-p2.xhcdn.com/a/NRQEkr4SMlYuIaaJt47vlA/000/476/401/812_1000.jpg"
-				, "https://thumb-p3.xhcdn.com/a/XNcOm8kqLky_hvzXG0-pNw/000/476/401/803_1000.jpg"
-				, "https://thumb-p8.xhcdn.com/a/189iBYc-_B8_WdBpUMu58A/000/476/401/788_1000.jpg"
-				, "https://thumb-p5.xhcdn.com/a/rEv6De5UgRfbOHMYurJ91A/000/476/401/775_1000.jpg"
-				, "https://thumb-p0.xhcdn.com/a/MJ4s6gXWGrCcZi-kCVv3uA/000/476/401/760_1000.jpg"
-				, "https://thumb-p1.xhcdn.com/a/5BA1T3wvVfN6z9sTcgcFhg/000/476/401/751_1000.jpg"
-				, "https://thumb-p8.xhcdn.com/a/vWZ1fzdxs3ISkgJL1BtdSg/000/476/401/738_1000.jpg"
-				, "https://thumb-p6.xhcdn.com/a/VUXiwIOXC2SP9iQcj6KXsw/000/476/401/726_1000.jpg"
-				, "https://thumb-p3.xhcdn.com/a/efLrE3SHnsbTWz-AsOnYtw/000/476/401/723_1000.jpg"
-				, "https://thumb-p4.xhcdn.com/a/w1vvY1ZBH9B14HU54q2dgw/000/476/401/694_1000.jpg"
-				, "https://thumb-p9.xhcdn.com/a/oCBGOSLcMRs9pN90Wb9mzw/000/476/401/689_1000.jpg"
-				, "https://thumb-p2.xhcdn.com/a/Ode5BuJzqqtblvaidlVqcw/000/476/401/682_1000.jpg"
-				, "https://thumb-p1.xhcdn.com/a/F2HmcaKUF2pNQXcsgIIn1g/000/476/401/671_1000.jpg"
-				, "https://thumb-p2.xhcdn.com/a/gxNVs57ARgBJ22lqALU8IA/000/476/401/642_1000.jpg"
-				, "https://thumb-p0.xhcdn.com/a/fibOsJMvKTeopZXDC-GRzw/000/476/401/630_1000.jpg"
-				, "https://thumb-p0.xhcdn.com/a/fibOsJMvKTeopZXDC-GRzw/000/476/401/630_1000.jpg");
+		List<String> urls = Arrays.asList("https://thumb-p1.xhcdn.com/a/vSky48P99AsWWZ5FpzQDxw/000/248/782/881_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/qxYeZNtfXyvd_s7t9PdZQg/000/248/782/967_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/vcjnmxM-Qy1MUl3vdf_m0Q/000/248/782/965_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/PXTMHGofMVwMNoB7hrkqow/000/248/782/964_1000.jpg"
+				, "https://thumb-p8.xhcdn.com/a/bvKwCTtV_PGCTs0TNdY5PA/000/248/782/958_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/HFWnvKaFclKrd1lrbI5cfQ/000/248/782/955_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/EEswJQk1MvcM4PWpwkwYbQ/000/248/782/950_1000.jpg"
+				, "https://thumb-p8.xhcdn.com/a/tDKgJ_430aXtwKBQOWb9FQ/000/248/782/948_1000.jpg"
+				, "https://thumb-p3.xhcdn.com/a/K8kBE_K_41LwkxYZDG1k2Q/000/248/782/943_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/SK635NvWmdDMivtL8WMIog/000/248/782/937_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/ELjA0oelq2jdPX-Rnj-4FQ/000/248/782/930_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/iodmQZ--cRTpWzKtBdkwng/000/248/782/927_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/ODCrYdeoVvcdz1zNPgrNgg/000/248/782/924_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/1IMf5xQhGOf4JSDyDGATzw/000/248/782/922_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/gjB6WAk9l6xq6iiGWJSemQ/000/248/782/919_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/xNlCGsQi9IpLPPLiWC1MpA/000/248/782/917_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/IVTTu47XSgtIQOKQlQfxLA/000/248/782/915_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/H5h_rlJvhrZOKi2Dcb68ag/000/248/782/912_1000.jpg"
+				, "https://thumb-p1.xhcdn.com/a/xXwxR5G-PNzKhJ52hIWsKg/000/248/782/911_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/jhQRhh_C6Rs4fjJYNmbR0w/000/248/782/900_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/MtoqY4IjYZTdhRJcZ9FrGw/000/248/782/897_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/Tt11EECTSiXzktBV1cJIeg/000/248/782/894_1000.jpg"
+				, "https://thumb-p1.xhcdn.com/a/iEPo5C54Yvz_CG4nDQ7_dQ/000/248/782/891_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/uZtmQgFGKRYv7nrDh2BMZg/000/248/782/887_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/8gxZ4rv_pH40WKbAbQypmA/000/248/782/885_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/i-B7DhhUORgW4KEFve0jAQ/000/248/782/884_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/WnVL7HIb6AeI1JVOfRvXOQ/000/248/782/882_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/fvkD5tDLHkxHe6WXSWjroQ/000/248/782/880_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/Q0CvTYGl5qsU5_8K-6OBvA/000/248/782/879_1000.jpg"
+				, "https://thumb-p8.xhcdn.com/a/DJcmKRMTaWF1m-9680dEVw/000/248/782/878_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/bkg8PbTCVKzhzQL58An7lg/000/248/782/875_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/iyIVilHxl8q8X2D3lQlR7w/000/248/782/874_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/QdMWj4JZdUCGg080dx9tjA/000/248/782/872_1000.jpg"
+				, "https://thumb-p1.xhcdn.com/a/Kt5TIcrRre7dD1ChzCeLXw/000/248/782/871_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/g71cJLJ7qao-C7_X5CKqoA/000/248/782/870_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/_fXCKYN_LTFUVBrI9Nh_yQ/000/248/782/867_1000.jpg"
+				, "https://thumb-p6.xhcdn.com/a/U2syppb-8mLJaLLZPp9O3Q/000/248/782/866_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/bc4E9P2QJDqKtPCCIbOSxA/000/248/782/864_1000.jpg"
+				, "https://thumb-p3.xhcdn.com/a/WKnurwRDP0cwizwwzaNHYA/000/248/782/863_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/o4WN_QbL-R9MrWcQd_evfQ/000/248/782/859_1000.jpg"
+				, "https://thumb-p6.xhcdn.com/a/LB-n40pdKei_f5ISqC9_9w/000/248/782/856_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/Q-cIOFhT_kPno9CNghKBIQ/000/248/782/855_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/bcH6x-fP8cOIyPr4HkAcrQ/000/248/782/852_1000.jpg"
+				, "https://thumb-p1.xhcdn.com/a/DmNetTC9dYc1vCuE3ij0bQ/000/248/782/851_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/rVuvhRU0AIYpsfDrwXOlgA/000/248/782/849_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/2zbHdMGGz9H3etHBftWYtQ/000/248/782/847_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/UEV3iimr4OfU4bjz_XsqWQ/000/248/782/844_1000.jpg"
+				, "https://thumb-p3.xhcdn.com/a/kOlMfXIkbGr5CzXgp1oZUA/000/248/782/843_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/CgWjXFykDrJUaLrGPm-Qqw/000/248/782/842_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/gB5yNJES6hIG5DaQHxYeIw/000/248/782/839_1000.jpg"
+				, "https://thumb-p8.xhcdn.com/a/tFbtbwzWHaNzGoz8VsH4wA/000/248/782/838_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/tfqDtAzfIBc2KrgZANOfxA/000/248/782/830_1000.jpg"
+				, "https://thumb-p8.xhcdn.com/a/aMPHx5d4YiW-NEEMKsqQ0w/000/248/782/828_1000.jpg"
+				, "https://thumb-p3.xhcdn.com/a/IUFgv_8ssK4ccBTA5aBWxA/000/248/782/823_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/aqGUzCXty5r3HVsadCqDog/000/248/782/820_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/BrciybBGu4a9lRqA1r5BiA/000/248/782/819_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/Wg3jPCIXBqgCSgYnWBHhug/000/248/782/817_1000.jpg"
+				, "https://thumb-p4.xhcdn.com/a/rsorRwTrM4Bfpv5mQbQFXA/000/248/782/814_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/-pHAsGJKbIuGVD8TH7JRzA/000/248/782/812_1000.jpg"
+				, "https://thumb-p1.xhcdn.com/a/atkJFfs51HVbGQHov8RjYA/000/248/782/811_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/VjjUgkIjaGVqWbQkbZpMRQ/000/248/782/809_1000.jpg"
+				, "https://thumb-p7.xhcdn.com/a/4dMVDB2YJxZhVHsBR92oaA/000/248/782/807_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/9oPF4dLG7t-O-ya77hKHtg/000/248/782/805_1000.jpg"
+				, "https://thumb-p3.xhcdn.com/a/9eC3eVkRRmLBLGMIhqFQyQ/000/248/782/803_1000.jpg"
+				, "https://thumb-p9.xhcdn.com/a/Psz8ckaMuT767bx_67iBCw/000/248/782/799_1000.jpg"
+				, "https://thumb-p8.xhcdn.com/a/K9MJBp1f6xTkdsj0u4l71g/000/248/782/798_1000.jpg"
+				, "https://thumb-p6.xhcdn.com/a/iSo7w9FpjOk0SOy7pUuTag/000/248/782/796_1000.jpg"
+				, "https://thumb-p5.xhcdn.com/a/U9xYsHL6fJKq5D3SZqIIvg/000/248/782/795_1000.jpg"
+				, "https://thumb-p2.xhcdn.com/a/VuOPKcdbNwvkmhUQTSJm-w/000/248/782/792_1000.jpg"
+				, "https://thumb-p1.xhcdn.com/a/iZeK1GkPLzxh9p1vtsNYiw/000/248/782/791_1000.jpg"
+				, "https://thumb-p0.xhcdn.com/a/y4nt-R8tnCrnvqUjntYp7Q/000/248/782/790_1000.jpg"
+				, "https://thumb-p6.xhcdn.com/a/JV7KRcc4IjfrERyKyi9gQg/000/248/782/786_1000.jpg");
 		
-		String loc = "C:\\Users\\abcd\\Downloads\\mlf12";
+		File theDir = new File("C:\\Users\\abcd\\Downloads\\" + System.currentTimeMillis());
+		if (!theDir.exists()){
+		    theDir.mkdirs();
+		}
+		
+//		String loc = "C:\\Users\\abcd\\Downloads\\mlf12";
+		int i = 1;
 		
 		for(String url : urls) {
-			Thread.sleep(3000);
+			Thread.sleep(1000);
+			
 			String filename = url.split("/")[8];
 			System.out.println(url.split("/")[8]);
 			
 			Process process = Runtime.getRuntime()
-			        .exec("cmd /c " + "curl " + url +" --output " + filename, null, new File(loc));
+			        .exec("cmd /c " + "curl " + url +" --output " + i + filename, null, new File(theDir.getPath()));
+			i++;
 		}
 		
 	
