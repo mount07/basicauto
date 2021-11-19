@@ -20,12 +20,12 @@ public class GetLinksxHams {
 
 //		System.setProperty("webdriver.opera.driver", "D:\\Auto\\drivers\\operadriver_win32\\operadriver.exe");
 //		WebDriver driver = new OperaDriver();
-
+		System.setProperty("webdriver.chrome.driver", "D:\\auto\\driver\\chromedriver.exe");
 		WebDriver driver;
 
 		List<String> urls = Arrays.asList(
 				
-				"https://xhamster10.desi/photos/gallery/13836971/379290232");
+				"https://xhamster16.desi/photos/gallery/13836971/379290232");
 		for (String url : urls) {
 			Thread.sleep(5000);
 			driver = new ChromeDriver();

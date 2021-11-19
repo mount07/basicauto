@@ -3,7 +3,7 @@ package testPkg;
 import java.io.File;
 import java.io.IOException;
 
-public class RuntimeTest4 {
+public class RuntimeTest6 {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -12,11 +12,11 @@ public class RuntimeTest4 {
 			theDir.mkdirs();
 		}
 
-		for (int i = 10; i <= 20; i++) {
-			String url = "https://k5x5n5g8.ssl.hwcdn.net/content/190864/0012-" + i
+		for (int i = 1; i <= 13; i++) {
+			String url = "https://indiangirlsclub.com/wp-content/uploads/2018/07/big-boob-porn-photos-indian-babe-caught-naked-" + i
 					+ ".jpg";
 			
-			int j = 5;
+			int j = 7;
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
 			

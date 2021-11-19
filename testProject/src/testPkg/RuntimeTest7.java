@@ -3,7 +3,7 @@ package testPkg;
 import java.io.File;
 import java.io.IOException;
 
-public class RuntimeTest4 {
+public class RuntimeTest7 {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -12,11 +12,9 @@ public class RuntimeTest4 {
 			theDir.mkdirs();
 		}
 
-		for (int i = 10; i <= 20; i++) {
-			String url = "https://k5x5n5g8.ssl.hwcdn.net/content/190864/0012-" + i
-					+ ".jpg";
+			String url = "https://cdn5-images.motherlessmedia.com/images/B36D805.jpg";
 			
-			int j = 5;
+			int j = 4;
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
 			
@@ -25,7 +23,5 @@ public class RuntimeTest4 {
 			Process process = Runtime.getRuntime().exec("cmd /c " + "curl " + url + " --output " + filename, null,
 					new File(theDir.getPath()));
 		}
-
-	}
 
 }
