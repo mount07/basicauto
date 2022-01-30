@@ -30,9 +30,9 @@ public class ImgDwnUIAndRuntime {
 
 	public static List<String> getImgLinks() {
 		driver = new ChromeDriver();
-		driver.get("https://xxxporno.info/pic/pankhuri-kunal-cuckold-indian-couple-mega-collection-13161742/8");
+		driver.get("http://pokazuha.org/view/topic.cfm?key_or=875326");
 
-		List<WebElement> imgLinks = driver.findElements(By.cssSelector(".inner div>a>img"));
+		List<WebElement> imgLinks = driver.findElements(By.cssSelector("[id*='ppp'] img"));
 
 		List<String> imgUrls = new ArrayList<String>();
 

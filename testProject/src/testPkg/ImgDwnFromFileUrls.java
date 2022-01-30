@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImgDwnFsktr2 {
+public class ImgDwnFromFileUrls {
 	static File dir;
 
 	public static void createDirectoy() {
@@ -66,7 +66,7 @@ public class ImgDwnFsktr2 {
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
 			System.out.println(StringUtils.extractInt(filename));
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 
 			downloadFile(url, filename);
 		}

@@ -1,9 +1,13 @@
 package testPkg;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ImgDwnList {
+public class ImgDwnFromFileUrls0 {
 	static File dir;
 
 	public static void createDirectoy() {
@@ -13,10 +17,27 @@ public class ImgDwnList {
 		}
 	}
 
-	public static void main(String[] args) throws IOException, InterruptedException {
-		String url = "https://enf-cmnf.com/wp-content/gallery/enf-gallery/enf-embarrassed-pics-085.jpg";
+	public static void main(String[] args) throws Exception {
 		
+		readFromFile();
+		for(String url : readFromFile()) {
 		doFormatting(url);
+		}
+	}
+
+	public static List<String> readFromFile() throws Exception {
+
+		File file = new File("C:\\Users\\deven\\OneDrive\\Documents\\urls.txt");
+
+		BufferedReader br = new BufferedReader(new FileReader(file));
+
+		String st;
+		List<String> urls = new ArrayList<String>();
+		while ((st = br.readLine()) != null) {
+			System.out.println(st);
+			urls.add(st);
+		}
+		return urls;
 	}
 
 	public static void doFormatting(String url) throws InterruptedException, IOException {
@@ -35,9 +56,9 @@ public class ImgDwnList {
 
 		while (count > 0) {
 			if (count >= 10) {
-				url = baseUrl + basename + "0" +count + ".jpg";
+			url = baseUrl + basename + count + ".jpg";
 			} else {
-				url = baseUrl + basename + "00" + count + ".jpg";
+				url = baseUrl + basename + "0" + count + ".jpg";
 			}
 			System.out.println(url);
 			count--;
@@ -45,7 +66,7 @@ public class ImgDwnList {
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
 			System.out.println(StringUtils.extractInt(filename));
-			Thread.sleep(500);
+			Thread.sleep(1000);
 
 			downloadFile(url, filename);
 		}

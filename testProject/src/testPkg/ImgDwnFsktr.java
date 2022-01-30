@@ -14,7 +14,7 @@ public class ImgDwnFsktr {
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		String url = "https://sundarikanya.com/wp-content/uploads/2021/08/Sexy-Girl-Hot-Nude-Image-Leaked-176.jpg";
+		String url = "https://www.nacktsonnen.com/fkk-bilder/albums/userpics/19452/FKK_Urlaub_in_Brasilien_194.jpg";
 		
 		doFormatting(url);
 	}

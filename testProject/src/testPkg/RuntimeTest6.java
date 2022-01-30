@@ -12,11 +12,11 @@ public class RuntimeTest6 {
 			theDir.mkdirs();
 		}
 
-		for (int i = 1; i <= 13; i++) {
-			String url = "https://indiangirlsclub.com/wp-content/uploads/2018/07/big-boob-porn-photos-indian-babe-caught-naked-" + i
+		for (int i = 1; i <= 12; i++) {
+			String url = "https://img.faploads.com/2020/08/05/0a-" + i
 					+ ".jpg";
 			
-			int j = 7;
+			int j = 6;
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
 			

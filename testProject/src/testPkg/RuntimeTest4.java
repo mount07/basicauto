@@ -12,17 +12,26 @@ public class RuntimeTest4 {
 			theDir.mkdirs();
 		}
 
-		for (int i = 10; i <= 20; i++) {
-			String url = "https://k5x5n5g8.ssl.hwcdn.net/content/190864/0012-" + i
-					+ ".jpg";
+		String base = "https://angelkids.ru/celeb-fake/wp-content/uploads/2019/10/young-indian-bathroom-nude-photos-";
+		String url = "";
+		String suffix = ".jpg";
+		for (int i = 1; i <= 9; i++) {
+			if (i < 10)
+				url = base + "00" + i + suffix;
+			else if (i < 100)
+				url = base + "0" + i + suffix;
+			else
+				url = base + i + suffix;
+
+			long slashes = url.chars().filter(ch -> ch == '/').count();
+			int j = (int) slashes;
 			
-			int j = 5;
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
-			
-			Thread.sleep(500);
 
-			Process process = Runtime.getRuntime().exec("cmd /c " + "curl " + url + " --output " + filename, null,
+			Thread.sleep(1000);
+
+			Runtime.getRuntime().exec("cmd /c " + "curl " + url + " --output " + filename, null,
 					new File(theDir.getPath()));
 		}
 
