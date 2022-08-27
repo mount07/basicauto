@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.nip;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,27 +7,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImgDwnFromFileUrls {
+import testPkg.StringUtils;
+
+public class ImgDwnFromFileUrls2 {
 	static File dir;
 
-	public static void createDirectoy() {
-		dir = new File("C:\\Users\\deven\\Downloads\\" + System.currentTimeMillis());
+	public static void createDirectoy(String name) {
+		dir = new File("F:\\bulkdoc\\" + name);
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}
 	}
 
 	public static void main(String[] args) throws Exception {
-		
+
 		readFromFile();
-		for(String url : readFromFile()) {
-		doFormatting(url);
+		for (String url : readFromFile()) {
+			doFormatting(url);
 		}
 	}
 
 	public static List<String> readFromFile() throws Exception {
 
-		File file = new File("C:\\Users\\deven\\OneDrive\\Documents\\urls.txt");
+		File file = new File("F:\\bulk\\urlstemp.txt");
 
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
@@ -41,39 +43,42 @@ public class ImgDwnFromFileUrls {
 	}
 
 	public static void doFormatting(String url) throws InterruptedException, IOException {
-		url = url.replace(".jpg", "");
-		long slashes = url.chars().filter(ch -> ch == '/').count();
-		int j = (int) slashes;
-
-		String basename = url.split("/")[j].replaceAll("\\d", "");
-		String baseUrl = url.replace(url.split("/")[j], "");
+		
+		
+		String name = url.split(";")[0];
+		String id = url.split(";")[1];
+		String cat = url.split(";")[3];
+		int count = Integer.parseInt(url.split(";")[4]);
+		
+		
+		String baseUrl = "https://www.nudist-theater.com/members/photos/" + cat + "/" + id + "/xlarge/";
 		System.out.println(baseUrl);
-		String filecount = url.split("/")[j];
-//		String numberOnly = filecount.replaceAll("[^0-9]", "");
-		int count = Integer.parseInt(filecount.replaceAll("[^0-9]", ""));
 
-		createDirectoy();
+		createDirectoy(name + " - " + id);
 
 		while (count > 0) {
-//			if (count >= 10) {
-			url = baseUrl + basename + count + ".jpg";
-//			} else {
-//				url = baseUrl + basename + "0" + count + ".jpg";
-//			}
+			if (count >= 1000) {
+				url = baseUrl + count + ".jpg";
+			} else if (count >= 100) {
+				url = baseUrl + "0" + count + ".jpg";
+			} else if (count >= 10) {
+				url = baseUrl + "00" + count + ".jpg";
+			} else {
+				url = baseUrl + "000" + count + ".jpg";
+			}
 			System.out.println(url);
-			count--;
-
-			String filename = url.split("/")[j];
-			System.out.println(url.split("/")[j]);
+			
+			String filename = ""+ count + ".jpg";
 			System.out.println(StringUtils.extractInt(filename));
-			Thread.sleep(3000);
+			Thread.sleep(500);
 
 			downloadFile(url, filename);
+			
+			count--;
 		}
 	}
 
 	public static void downloadFile(String url, String filename) throws IOException {
-		System.out.println("Url : " + url);
 		Process process = Runtime.getRuntime().exec("cmd /c " + "curl " + url + " --output " + filename, null,
 				new File(dir.getPath()));
 	}

@@ -1,50 +1,23 @@
 package testPkg;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestClass {
 
 	public static void main(String[] args) throws InterruptedException {
 		System.out.println(".........");
-		WebDriver driver = new ChromeDriver();
-		
-		driver.manage().timeouts().implicitlyWait(1010, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(1000, TimeUnit.SECONDS);
-		driver.get("file:///C:/Users/Administrator/Downloads/piyanka_mongia%20(@piyanka_mongia)%20Official%20TikTok%20_%20Watch%20piyanka_mongia's%20Newest%20TikTok%20Videos.html");
-		
-		Thread.sleep(3000);
-		
-		driver.manage().timeouts().pageLoadTimeout(1000, TimeUnit.SECONDS);
-		
-		List<WebElement> links = driver.findElements(By.cssSelector(".video-feed a"));
-		
-		for(WebElement link : links) {
-			String href = link.getAttribute("href");
-			write("A:\\piyanka_mongia.txt", href);
+//		WebDriver driver = new ChromeDriver();
+
+		FileClass.rename("E:\\Chrome Passwords.csv", "E:\\ChromePass.csv");
+
+		File directoryPath = new File("G:\\Nudist\\EventsOccasions");
+		// List of all files and directories
+		String contents[] = directoryPath.list();
+		System.out.println("List of files and directories in the specified directory:");
+		for (int i = 0; i < contents.length; i++) {
+			System.out.println(contents[i]);
 		}
-		
-		
+
 	}
-	
-	public static void write(String filePath, String text) {
-		try {
-			File file = new File(filePath);
-			FileWriter myWriter = new FileWriter(file, true);
-			myWriter.write(text + "\n");
-			myWriter.close();
-			System.out.println("Successfully wrote to the file.");
-		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
-		}
-	}
+
 }

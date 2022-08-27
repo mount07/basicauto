@@ -1,4 +1,4 @@
-package testPkg;
+package testPkg.nip;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,11 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImgDwnFromFileUrls {
+import testPkg.StringUtils;
+
+public class ImgDwnFromFileUrls1 {
 	static File dir;
 
 	public static void createDirectoy() {
-		dir = new File("C:\\Users\\deven\\Downloads\\" + System.currentTimeMillis());
+		dir = new File("F:\\bulk\\" + System.currentTimeMillis());
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}
@@ -55,25 +57,28 @@ public class ImgDwnFromFileUrls {
 		createDirectoy();
 
 		while (count > 0) {
-//			if (count >= 10) {
+			if (count >= 1000) {
 			url = baseUrl + basename + count + ".jpg";
-//			} else {
-//				url = baseUrl + basename + "0" + count + ".jpg";
-//			}
+			} else if(count >= 100){
+				url = baseUrl + basename + "0" + count + ".jpg";
+			} else if(count >= 10) {
+				url = baseUrl + basename + "00" + count + ".jpg";
+			} else {
+				url = baseUrl + basename + "000" + count + ".jpg";
+			}
 			System.out.println(url);
 			count--;
 
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
 			System.out.println(StringUtils.extractInt(filename));
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 
 			downloadFile(url, filename);
 		}
 	}
 
 	public static void downloadFile(String url, String filename) throws IOException {
-		System.out.println("Url : " + url);
 		Process process = Runtime.getRuntime().exec("cmd /c " + "curl " + url + " --output " + filename, null,
 				new File(dir.getPath()));
 	}

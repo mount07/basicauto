@@ -128,5 +128,18 @@ public class Test {
 			System.out.println("Something went horribly wrong: " + e.getMessage());
 		}
 	}
+	
+	public static void writeToFile(String filePath, String text) {
+		try {
+			File file = new File(filePath);
+			FileWriter myWriter = new FileWriter(file, true);
+			myWriter.write(text + "\n");
+			myWriter.close();
+			System.out.println("Successfully wrote to the file.");
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
 
 }

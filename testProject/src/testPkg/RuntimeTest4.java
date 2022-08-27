@@ -12,10 +12,11 @@ public class RuntimeTest4 {
 			theDir.mkdirs();
 		}
 
-		String base = "https://angelkids.ru/celeb-fake/wp-content/uploads/2019/10/young-indian-bathroom-nude-photos-";
+		String base = "https://www.nudist-theater.com/members/photos/Public%20Nudist%20Beach/063015301757/xlarge/0";
 		String url = "";
 		String suffix = ".jpg";
-		for (int i = 1; i <= 9; i++) {
+		
+		for (int i = 1; i <= 370; i++) {
 			if (i < 10)
 				url = base + "00" + i + suffix;
 			else if (i < 100)
@@ -25,16 +26,17 @@ public class RuntimeTest4 {
 
 			long slashes = url.chars().filter(ch -> ch == '/').count();
 			int j = (int) slashes;
-			
+
 			String filename = url.split("/")[j];
 			System.out.println(url.split("/")[j]);
 
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			Runtime.getRuntime().exec("cmd /c " + "curl " + url + " --output " + filename, null,
 					new File(theDir.getPath()));
 		}
 
 	}
-
+	
+	
 }

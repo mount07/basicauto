@@ -2,7 +2,6 @@ package testPkg;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ImgDwnUIAndRuntime {
+public class ImgDwnSinglePage {
 	static File dir;
 	static WebDriver driver;
 
@@ -23,41 +22,35 @@ public class ImgDwnUIAndRuntime {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		createDirectoy();
-		for (String url : getImgLinks()) {
-			doFormatting(url);
-		}
+		getImgLinks();
+
+		driver.close();
 	}
 
-	public static List<String> getImgLinks() {
+	public static void getImgLinks() throws InterruptedException, IOException {
 		driver = new ChromeDriver();
-		driver.get("https://www.erome.com/a/fURYXiYp");
+		driver.get("https://1x.com/dubnitskiy");
 
-		List<WebElement> imgLinks = driver.findElements(By.cssSelector("div.img>img"));
-
-		List<String> imgUrls = new ArrayList<String>();
-
-		for (WebElement imgLink : imgLinks) {
-			String url = imgLink.getAttribute("data-src");
+		Thread.sleep(10000);
+		List<WebElement> imgLinks = driver
+				.findElements(By.cssSelector(".photos-feed-image.photos-feed-image-portrait"));
+		for (WebElement vid : imgLinks) {
+			String url = vid.getAttribute("src");
 			System.out.println(url);
-			imgUrls.add(url);
+			doFormatting(url);
 		}
-		
-		driver.close();
 
-		return imgUrls;
 	}
 
 	public static void doFormatting(String url) throws InterruptedException, IOException {
-
 		long slashes = url.chars().filter(ch -> ch == '/').count();
 		int j = (int) slashes;
 
 		String filename = url.split("/")[j];
 		System.out.println(url.split("/")[j]);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 		downloadFile(url, filename);
-
 	}
 
 	public static void downloadFile(String url, String filename) throws IOException {
