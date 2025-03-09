@@ -4,23 +4,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.opera.OperaDriver;
 
 public class GetLinksxHams {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		System.out.println(".........");
 
-//		System.setProperty("webdriver.opera.driver", "D:\\Auto\\drivers\\operadriver_win32\\operadriver.exe");
-//		WebDriver driver = new OperaDriver();
-		System.setProperty("webdriver.chrome.driver", "D:\\auto\\driver\\chromedriver.exe");
 		WebDriver driver;
 
 		List<String> urls = Arrays.asList(

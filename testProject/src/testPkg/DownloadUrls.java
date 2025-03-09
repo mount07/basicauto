@@ -1,6 +1,8 @@
 package testPkg;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ImgDwnUIAndRuntime {
+public class DownloadUrls {
 	static File dir;
 	static WebDriver driver;
 
@@ -21,30 +23,25 @@ public class ImgDwnUIAndRuntime {
 		}
 	}
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws Exception {
 		createDirectoy();
-		for (String url : getImgLinks()) {
+		for (String url : getLinksFromFile()) {
 			doFormatting(url);
 		}
 	}
+	
+	public static List<String> getLinksFromFile() throws Exception {
+		File file = new File("C:\\Users\\dev\\Documents\\urls2.txt");
 
-	public static List<String> getImgLinks() {
-		driver = new ChromeDriver();
-		driver.get("https://www.erome.com/a/fURYXiYp");
+		BufferedReader br = new BufferedReader(new FileReader(file));
 
-		List<WebElement> imgLinks = driver.findElements(By.cssSelector("div.img>img"));
-
-		List<String> imgUrls = new ArrayList<String>();
-
-		for (WebElement imgLink : imgLinks) {
-			String url = imgLink.getAttribute("data-src");
-			System.out.println(url);
-			imgUrls.add(url);
+		String st;
+		List<String> urls = new ArrayList<String>();
+		while ((st = br.readLine()) != null) {
+			System.out.println(st);
+			urls.add(st);
 		}
-		
-		driver.close();
-
-		return imgUrls;
+		return urls;
 	}
 
 	public static void doFormatting(String url) throws InterruptedException, IOException {
@@ -54,7 +51,7 @@ public class ImgDwnUIAndRuntime {
 
 		String filename = url.split("/")[j];
 		System.out.println(url.split("/")[j]);
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 
 		downloadFile(url, filename);
 

@@ -15,8 +15,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Dwnld4 {
 
@@ -34,11 +32,8 @@ public class Dwnld4 {
 		chromePrefs.put("download.default_directory", downloadFilepath);
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("prefs", chromePrefs);
-		DesiredCapabilities cap = DesiredCapabilities.htmlUnit();
-		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-		cap.setCapability(ChromeOptions.CAPABILITY, options);
 
-		WebDriver driver = new ChromeDriver(cap);
+		WebDriver driver = new ChromeDriver();
 
 		Stream<Path> files = Files.list(Paths.get(downloadFilepath));
 		long baseCount = files.count();

@@ -15,8 +15,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Dwnld7 {
 
@@ -39,11 +37,8 @@ public class Dwnld7 {
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("prefs", chromePrefs);
 		options.addArguments("--incognito");
-		DesiredCapabilities cap = DesiredCapabilities.htmlUnit();
-		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-		cap.setCapability(ChromeOptions.CAPABILITY, options);
 
-		WebDriver driver = new ChromeDriver(cap);
+		WebDriver driver = new ChromeDriver();
 
 		List<String> urls = Files.readAllLines(Paths.get("A:\\media\\source.txt"));
 		for (String url : urls) {

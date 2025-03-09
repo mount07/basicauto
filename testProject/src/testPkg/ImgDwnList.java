@@ -7,7 +7,7 @@ public class ImgDwnList {
 	static File dir;
 
 	public static void createDirectoy() {
-		dir = new File("C:\\Users\\deven\\Downloads\\" + System.currentTimeMillis());
+		dir = new File("C:\\Users\\dev\\Downloads\\" + System.currentTimeMillis());
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}

@@ -1,22 +1,43 @@
 package testPkg;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ImgDwnFsktr {
+public class DownloadUrl {
 	static File dir;
 
 	public static void createDirectoy() {
-		dir = new File("D:\\temp\\" + System.currentTimeMillis());
+		dir = new File("C:\\Users\\dev\\Downloads\\" + System.currentTimeMillis());
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}
 	}
 
-	public static void main(String[] args) throws IOException, InterruptedException {
-		String url = "https://i6.fuskator.com/large/gDUF6ggM-wO/Shaved-Busty-Hairy-Brunette-Babe-Pavla-from-AmourAngels-24.jpg";
+	public static void main(String[] args) throws Exception {
 		
+		readFromFile();
+		for(String url : readFromFile()) {
 		doFormatting(url);
+		}
+	}
+
+	public static List<String> readFromFile() throws Exception {
+
+		File file = new File("C:\\Users\\dev\\Documents\\urls.txt");
+
+		BufferedReader br = new BufferedReader(new FileReader(file));
+
+		String st;
+		List<String> urls = new ArrayList<String>();
+		while ((st = br.readLine()) != null) {
+			System.out.println(st);
+			urls.add(st);
+		}
+		return urls;
 	}
 
 	public static void doFormatting(String url) throws InterruptedException, IOException {
@@ -30,15 +51,14 @@ public class ImgDwnFsktr {
 		String filecount = url.split("/")[j];
 //		String numberOnly = filecount.replaceAll("[^0-9]", "");
 		int count = Integer.parseInt(filecount.replaceAll("[^0-9]", ""));
+		int length = /*String.valueOf(count).length()*/4;
 
 		createDirectoy();
 
 		while (count > 0) {
-//			if (count >= 10) {
-				url = baseUrl + basename + count + ".jpg";
-//			} else {
-//				url = baseUrl + basename + "0" + count + ".jpg";
-//			}
+			String num = String.format("%0" + length + "d", count);
+			url = baseUrl + basename + num + ".jpg";
+			
 			System.out.println(url);
 			count--;
 
@@ -49,6 +69,14 @@ public class ImgDwnFsktr {
 
 			downloadFile(url, filename);
 		}
+	}
+	
+	public static List<String> getFormatedNumberList(int digitCount, int inputNumber) {
+		List<String> numberList = new ArrayList<>();
+		for (int i = 0; i < inputNumber; i++) {
+			numberList.add(String.format("%0" + digitCount + "d", i));
+		}
+		return numberList;
 	}
 
 	public static void downloadFile(String url, String filename) throws IOException {

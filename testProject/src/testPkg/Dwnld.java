@@ -10,8 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Dwnld {
 
@@ -24,14 +22,8 @@ public class Dwnld {
 		chromePrefs.put("download.default_directory", downloadFilepath);
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("prefs", chromePrefs);
-		DesiredCapabilities cap = DesiredCapabilities.htmlUnit();
-		cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-		cap.setCapability(ChromeOptions.CAPABILITY, options);
-		
-
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Administrator\\Documents\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver(cap);
+				
+		WebDriver driver = new ChromeDriver();
 
 		List<String> urls = Arrays.asList(
 				"https://www.tiktok.com/@riya.shines/video/6646673468538490117",  

@@ -9,14 +9,11 @@ public class Testing {
 
 	public static void main(String[] args) {
 		
-//		System.setProperty("webdriver.chrome.driver", "D:\\Auto\\drivers\\chromedriver_win32\\chromedriver.exe");
-		
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://develop.jomi.com");
 		
 		WebElement pass = driver.findElement(By.cssSelector("[placeholder='Enter Password']"));
 		WebElement login = driver.findElement(By.cssSelector("[type='submit']"));
-		
 		
 		pass.sendKeys("jomi");
 		login.click();

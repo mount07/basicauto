@@ -12,7 +12,7 @@ public class DwImg3 {
 
 		String url = "https://k5x5n5g8.ssl.hwcdn.net/content/1209/metart-uma-b-oberon-15.jpg";
 		
-		File theDir = new File("C:\\Users\\abcd\\Downloads\\" + System.currentTimeMillis());
+		File theDir = new File("C:\\Users\\dev\\Downloads\\" + System.currentTimeMillis());
 		if (!theDir.exists()) {
 			theDir.mkdirs();
 		}
